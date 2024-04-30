@@ -1,18 +1,24 @@
-import React from "react";
-import "./SearchBar.css";
+import React, {useState} from "react";
+import SearchBarContainer from "../../containers/SearchBar/SearchBarContainer";
+
 
 const SearchBar = (props) => {
+    const [term, setTerm] = useState("");
+
+    const handleTermChange = ({ target }) => {
+        setTerm(target.value);
+    }
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        props.onSearch(term);
+    }
+
     return (
-        <div className="SearchBar">
-            <input
-                placeholder="Enter A Song Title"
-                onChange={this.handleTermChange}
-            />
-            {/* Needs to be added */ }
-            <button className="SearchButton" onClick={this.search}>
-                SEARCH
-            </button>
-        </div>
+        <SearchBarContainer
+            handleTermChange={handleTermChange}
+            handleSearchSubmit={handleSearchSubmit}
+        />
     );
 }
 

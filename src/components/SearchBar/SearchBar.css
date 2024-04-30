@@ -38,3 +38,13 @@
 .SearchButton:hover {
     background-color: rgba(108, 65, 233, .7);
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-center {
+    justify-content: center;
+    align-items: center;
+}
